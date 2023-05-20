@@ -354,22 +354,29 @@
 
           <div class="contact-form">
             <h3 class="title">Contate-me</h3>
-            <div class="row">
-              <input type="text" class="contact-input" placeholder="Nome" />
-              <input type="text" class="contact-input" placeholder="Sobrenome" />
-            </div>
+            <form id="contact-form">
+              <div class="row">
+                <input type="text" class="contact-input" name="Nome" placeholder="Nome" />
+                <input type="text" class="contact-input" name="Sobrenome" placeholder="Sobrenome" />
+              </div>
 
-            <div class="row">
-              <input type="text" class="contact-input" placeholder="Telefone" />
-              <input type="email" class="contact-input" placeholder="Email" />
-            </div>
+              <div class="row">
+                <input type="text" class="contact-input" name="Telefone" placeholder="Telefone" />
+                <input type="email" class="contact-input" name="Email" placeholder="Email" />
+              </div>
 
-            <div class="row">
-              <textarea name="message" class="contact-input textarea" placeholder="Messagem"></textarea>
-            </div>
-            <a href="#" class="btn">Enviar</a>
+              <div class="row">
+                <textarea name="Mensagem" class="contact-input textarea" placeholder="Mensagem"></textarea>
+              </div>
+              <button type="submit" class="btn" onclick="enviarFormulario(event)">Enviar</button>
+            </form>
           </div>
+          <div id="mensagem-sucesso" style="display: none;">Mensagem enviada com sucesso!</div>
+          <div id="mensagem-erro" style="display: none;">Erro ao enviar a mensagem.</div>
+
         </div>
+
+      </div>
       </div>
     </section>
   </main>

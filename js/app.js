@@ -99,3 +99,48 @@ var mySwiper = new Swiper(".swiper-container", {
     nextEl: ".swiper-button-next",
   },
 });
+
+
+function enviarFormulario(event) {
+  event.preventDefault();
+  const form = document.getElementById('contact-form');
+  const formData = new FormData(form);
+  const xhr = new XMLHttpRequest();
+
+  xhr.open('POST', 'https://formspree.io/f/mnqyrejg');
+  xhr.setRequestHeader('Accept', 'application/json');
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // Sucesso ao enviar o formulário
+        console.log('Formulário enviado com sucesso');
+        exibirMensagemSucesso();
+        limparCamposFormulario();
+      } else {
+        // Erro ao enviar o formulário
+        console.error('Erro ao enviar o formulário');
+        exibirMensagemErro();
+      }
+    }
+  };
+
+  xhr.send(formData);
+}
+
+function exibirMensagemSucesso() {
+  const mensagemSucesso = document.getElementById('mensagem-sucesso');
+  mensagemSucesso.style.display = 'block';
+}
+
+function exibirMensagemErro() {
+  const mensagemErro = document.getElementById('mensagem-erro');
+  mensagemErro.style.display = 'block';
+}
+
+function limparCamposFormulario() {
+  const form = document.getElementById('contact-form');
+  form.reset();
+}
+
+
