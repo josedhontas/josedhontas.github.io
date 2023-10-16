@@ -101,6 +101,8 @@ var mySwiper = new Swiper(".swiper-container", {
 });
 
 
+
+// 
 function enviarFormulario(event) {
   event.preventDefault();
   const form = document.getElementById('contact-form');
@@ -143,4 +145,8 @@ function limparCamposFormulario() {
   form.reset();
 }
 
+// evitar clique mouse direita
+document.oncontextmenu = () => {
+  return false
+}
 
